@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue多级联动</title>
+    <link rel="stylesheet" src="./css/index.css"/>
+    <script src="./js/vue.js"></script>
+    <script src="js/index.js"></script>
+    <!-- <script src="./js/data.js"></script> -->
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.0/lib/vant.min.js"></script>
+
+</head>
+<body>
+    <h3>城市三级联动</h3>
+    <div id="app">
+        <select v-model="prov" @change='updateCity();updateDistrict();'>
+            <option v-for="(o,i) in arr" :key="i" >{{o.name}}</option>
+        </select>
+        <select v-model="city" @change="updateDistrict()">
+            <option v-for="(o,i) in cityArr" :key="i">{{o.name}}</option>
+        </select>
+        <select v-model="district">
+            <option v-for="(o,i) in districtArr" :key="i">{{o.name}}</option>
+        </select>
+    </div>
+</body>
+</html>
